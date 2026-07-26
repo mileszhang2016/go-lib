@@ -1,3 +1,17 @@
+// Copyright (c) 2026 The BFE Authors.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
 // Copyright (c) 2018 Baidu, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -48,6 +62,7 @@ var RELOAD_SRC_ALLOWED = map[string]bool{
 
 type MonitorServer struct {
 	port        int          // port for listen
+	addr        string       // address for listen, empty means all interfaces
 	name        string       // name of the daemon server
 	version     string       // version of daemon server
 	startAt     string       // start time of daemon server
@@ -56,11 +71,18 @@ type MonitorServer struct {
 
 // NewMonitorServer creates new MonitorServer
 func NewMonitorServer(name string, version string, port int) *MonitorServer {
+	return NewMonitorServerWithAddr(name, version, "", port)
+}
+
+// NewMonitorServerWithAddr creates new MonitorServer binding to the given address.
+// addr can be an IP (e.g. "127.0.0.1") or a host name; empty means all interfaces.
+func NewMonitorServerWithAddr(name string, version string, addr string, port int) *MonitorServer {
 	srv := new(MonitorServer)
 
 	srv.name = name
 	srv.version = version
 	srv.startAt = timefmt.CurrTimeGet()
+	srv.addr = addr
 	srv.port = port
 
 	srv.webHandlers = NewWebHandlers()
@@ -367,12 +389,18 @@ func (srv *MonitorServer) Start() {
 
 // ListenAndServe start embeded web server
 func (srv *MonitorServer) ListenAndServe() error {
-	log.Logger.Info("Embeded web server start at port[%d]", srv.port)
+	var addrStr string
+	if srv.addr == "" {
+		addrStr = fmt.Sprintf(":%d", srv.port)
+		log.Logger.Info("Embeded web server start at port[%d]", srv.port)
+	} else {
+		addrStr = fmt.Sprintf("%s:%d", srv.addr, srv.port)
+		log.Logger.Info("Embeded web server start at [%s:%d]", srv.addr, srv.port)
+	}
 
 	http.HandleFunc("/", srv.webHandler)
 
-	portStr := fmt.Sprintf(":%d", srv.port)
-	return http.ListenAndServe(portStr, nil)
+	return http.ListenAndServe(addrStr, nil)
 }
 
 // InitReloadACL inits reload-acl from file.
