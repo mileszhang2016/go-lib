@@ -34,10 +34,10 @@ import (
 )
 
 import (
-	"github.com/baidu/go-lib/gotrack"
-	"github.com/baidu/go-lib/log"
-	"github.com/baidu/go-lib/time/timefmt"
-	"github.com/baidu/go-lib/web-monitor/web_monitor/reload_src_conf"
+	"github.com/bfenetworks/go-lib/gotrack"
+	"github.com/bfenetworks/go-lib/log"
+	"github.com/bfenetworks/go-lib/time/timefmt"
+	"github.com/bfenetworks/go-lib/web-monitor/web_monitor/reload_src_conf"
 )
 
 // source ip address allowed to do reload

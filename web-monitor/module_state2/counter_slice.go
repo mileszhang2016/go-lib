@@ -16,7 +16,7 @@
 
 /*
 Usage:
-    import "github.com/baidu/go-lib/web-monitor/module_state2"
+    import "github.com/bfenetworks/go-lib/web-monitor/module_state2"
 
     var counter module_state2.Counter
     var counterSlice *module_state2.CounterSlice
@@ -48,7 +48,7 @@ import (
 )
 
 import (
-	"github.com/baidu/go-lib/web-monitor/web_params"
+	"github.com/bfenetworks/go-lib/web-monitor/web_params"
 )
 
 /* diff of two counters    */

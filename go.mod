@@ -1,4 +1,4 @@
-module github.com/baidu/go-lib
+module github.com/bfenetworks/go-lib
 
 go 1.12
 

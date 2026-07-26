@@ -15,7 +15,7 @@
 // collecting state info of a module
 /*
 Usage:
-    import "github.com/baidu/go-lib/web-monitor/module_state2"
+    import "github.com/bfenetworks/go-lib/web-monitor/module_state2"
 
     var state module_state2.State
 
@@ -40,7 +40,7 @@ import (
 )
 
 import (
-	"github.com/baidu/go-lib/web-monitor/web_params"
+	"github.com/bfenetworks/go-lib/web-monitor/web_params"
 )
 
 // StateData holds state data

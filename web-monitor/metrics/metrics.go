@@ -14,7 +14,7 @@
 
 /*
 Usage:
-    import "github.com/baidu/go-lib/web-monitor/metrics"
+    import "github.com/bfenetworks/go-lib/web-monitor/metrics"
 
     // define counter struct type
     type ServerState {
@@ -58,7 +58,7 @@ import (
 )
 
 import (
-	"github.com/baidu/go-lib/web-monitor/web_params"
+	"github.com/bfenetworks/go-lib/web-monitor/web_params"
 )
 
 const (

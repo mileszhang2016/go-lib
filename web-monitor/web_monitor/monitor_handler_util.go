@@ -24,10 +24,10 @@ import (
 )
 
 import (
-	"github.com/baidu/go-lib/web-monitor/delay_counter"
-	"github.com/baidu/go-lib/web-monitor/kv_encode"
-	"github.com/baidu/go-lib/web-monitor/module_state2"
-	"github.com/baidu/go-lib/web-monitor/web_params"
+	"github.com/bfenetworks/go-lib/web-monitor/delay_counter"
+	"github.com/bfenetworks/go-lib/web-monitor/kv_encode"
+	"github.com/bfenetworks/go-lib/web-monitor/module_state2"
+	"github.com/bfenetworks/go-lib/web-monitor/web_params"
 )
 
 // function prototype for getting CounterDiff/DelayOutput/StateData

@@ -16,7 +16,7 @@
 This program provides converting flat StateDate to hierarchical StateData for json output
 
 Usage:
-    import "github.com/baidu/go-lib/web-monitor/module_state2"
+    import "github.com/bfenetworks/go-lib/web-monitor/module_state2"
 
     var sd module_state2.StateData
     data, err := GetSdHierJson(&sd)

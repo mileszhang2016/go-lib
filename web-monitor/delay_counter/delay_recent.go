@@ -23,8 +23,8 @@ import (
 )
 
 import (
-	"github.com/baidu/go-lib/web-monitor/module_state2"
-	"github.com/baidu/go-lib/web-monitor/web_params"
+	"github.com/bfenetworks/go-lib/web-monitor/module_state2"
+	"github.com/bfenetworks/go-lib/web-monitor/web_params"
 )
 
 type DelayRecent struct {

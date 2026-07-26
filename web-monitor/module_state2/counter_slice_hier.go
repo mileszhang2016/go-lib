@@ -16,7 +16,7 @@
 This program provides converting flat CounterDiff to hierarchical CounterDiff for json output
 
 Usage:
-    import "github.com/baidu/go-lib/web-monitor/module_state2"
+    import "github.com/bfenetworks/go-lib/web-monitor/module_state2"
 
     var cd module_state2.CounterDiff
     data, err := module_state2.GetCdHierJson(&cd)

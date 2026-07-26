@@ -22,7 +22,7 @@ import (
 )
 
 import (
-	"github.com/baidu/go-lib/web-monitor/module_state2"
+	"github.com/bfenetworks/go-lib/web-monitor/module_state2"
 )
 
 type MockState struct {

@@ -16,7 +16,7 @@
 
 /*
 Usage:
-    import "github.com/baidu/go-lib/log"
+    import "github.com/bfenetworks/go-lib/log"
 
     // Two log files will be generated in ./log:
     // test.log, and test.wf.log(for log > warn)
@@ -39,7 +39,7 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/baidu/go-lib/log/log4go"
+	"github.com/bfenetworks/go-lib/log/log4go"
 )
 
 // Logger is global logger
