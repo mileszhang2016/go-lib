@@ -32,6 +32,16 @@ const (
 // quotas in Redis. One Redis unit equals 1e-8 yuan.
 const RmbPrecision = 1e8
 
+// MaxRMBQuota is the maximum allowed RMB quota value in yuan.
+//
+// RMB quotas are stored in Redis as fixed-point integers with precision
+// RmbPrecision (1e-8 yuan per unit). Lua numbers are IEEE 754 doubles,
+// which can exactly represent integers up to 2^53 (~9.007e15). With
+// RmbPrecision = 1e8, the theoretical limit is about 90.07 million yuan.
+// The business limit is standardized to 90 million yuan to guarantee
+// lossless arithmetic in all scenarios.
+const MaxRMBQuota = 90000000.0
+
 // IsRMB returns true if the given unit is RMB.
 // An empty unit is treated as total_token for backward compatibility.
 func IsRMB(unit string) bool {

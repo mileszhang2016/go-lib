@@ -87,6 +87,19 @@ func TestPtrToRedisValue(t *testing.T) {
 	}
 }
 
+func TestMaxRMBQuota(t *testing.T) {
+	// MaxRMBQuota = 90,000,000.00 yuan
+	// Its fixed-point representation must not exceed Lua number's exact
+	// integer limit (2^53 - 1 ≈ 9.007e15).
+	fixed := RmbToFixedPoint(MaxRMBQuota)
+	if fixed > (1<<53)-1 {
+		t.Errorf("MaxRMBQuota fixed-point value %d exceeds 2^53-1", fixed)
+	}
+	if MaxRMBQuota != 90000000.0 {
+		t.Errorf("MaxRMBQuota = %v, want 90000000.0", MaxRMBQuota)
+	}
+}
+
 func TestRmbToFixedPoint(t *testing.T) {
 	cases := []struct {
 		yuan float64
